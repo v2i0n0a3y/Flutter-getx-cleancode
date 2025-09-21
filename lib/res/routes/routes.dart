@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:getxcleancode/res/routes/routes_name.dart';
+import 'package:getxcleancode/view/login/login_view.dart';
 import 'package:getxcleancode/view/splash_screen.dart';
 
 class AppRoutes {
@@ -7,6 +8,10 @@ class AppRoutes {
         GetPage(
             name: RoutesName.splashScreen,
             page: () => const SplashScreen(),
-            transition: Transition.leftToRightWithFade)
+            transition: Transition.leftToRightWithFade),
+        GetPage(
+            name: RoutesName.loginView,
+            page: () => const LoginView(),
+            transition: Transition.leftToRightWithFade),
       ];
 }
