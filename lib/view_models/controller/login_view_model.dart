@@ -24,8 +24,13 @@ class LoginViewModel extends GetxController {
     _api.loginApi(data).then((value) {
       loading.value = false;
 
-      Utils.snackBar("Login", "Login Successfully");
+      if (value['error'] == 'user not found') {
+        Utils.snackBar('Login', value['error']);
+      } else {
+        Utils.snackBar("Login", "Login Successfully");
+      }
     }).onError((error, stackTrace) {
+      print(error.toString());
       loading.value = false;
 
       Utils.snackBar("Error", error.toString());

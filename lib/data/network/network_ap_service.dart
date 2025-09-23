@@ -35,7 +35,7 @@ class NetworkApiService extends BaseAPiService {
     try {
       final response = await http
           .post(Uri.parse(url),
-           body: jsonEncode(data))
+           body: data)
           .timeout(const Duration(seconds: 10));
       responseJson = returnReponse(response);
     } on SocketException {
@@ -53,7 +53,8 @@ class NetworkApiService extends BaseAPiService {
         return responseJson;
 
       case 400:
-        throw InvalidUrlException;
+      dynamic responseJson = jsonDecode(response.body);
+        return responseJson;
 
       default:
         throw FetchDataException(
