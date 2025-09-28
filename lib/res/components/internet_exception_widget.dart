@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:getxcleancode/res/colors/colors.dart';
 
 class InterNetExceptionWidget extends StatefulWidget {
-  final VoidCallbackAction onPressed;
+  final VoidCallback onPressed;
   const InterNetExceptionWidget({super.key, required this.onPressed});
 
   @override
