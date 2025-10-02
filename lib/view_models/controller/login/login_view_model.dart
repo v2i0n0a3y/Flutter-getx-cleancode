@@ -16,7 +16,6 @@ class LoginViewModel extends GetxController {
   final passwordFocusNode = FocusNode().obs;
   RxBool loading = false.obs;
 
-
   void loginApi() {
     loading.value = true;
     Map data = {
@@ -30,12 +29,12 @@ class LoginViewModel extends GetxController {
       if (value['error'] == 'user not found') {
         Utils.snackBar('Login', value['error']);
       } else {
-        UserModel userModel = UserModel(
-          isLogin: true, token: value['token']);
+        UserModel userModel = UserModel(isLogin: true, token: value['token']);
         userPreference.saveUser(userModel).then((value) {
-          Get.toNamed(RoutesName.homeView);
+          Get.delete<LoginViewModel>();
+          Get.toNamed(RoutesName.homeView)!.then((value) {});
+          Utils.snackBar("Login", "Login Successfully");
         }).onError((error, stackTrace) {});
-        Utils.snackBar("Login", "Login Successfully");
       }
     }).onError((error, stackTrace) {
       print(error.toString());

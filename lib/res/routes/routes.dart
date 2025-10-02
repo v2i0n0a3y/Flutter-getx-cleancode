@@ -12,7 +12,7 @@ class AppRoutes {
             transition: Transition.leftToRightWithFade),
         GetPage(
             name: RoutesName.loginView,
-            page: () => const LoginView(),
+            page: () => LoginView(),
             transition: Transition.leftToRightWithFade),
         GetPage(
             name: RoutesName.homeView,
